@@ -46,13 +46,9 @@ class ViewController: UIViewController {
             
             
             switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Right:
-                print("Swiped right")
             case UISwipeGestureRecognizerDirection.Down:
                 print("Swiped down")
                 menuPressed()
-            case UISwipeGestureRecognizerDirection.Left:
-                print("Swiped left")
             case UISwipeGestureRecognizerDirection.Up:
                 print("Swiped up")
                 menuPressed()
