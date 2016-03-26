@@ -12,11 +12,28 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var backWindow: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        let strybd:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let back:MainMenuViewController = strybd.instantiateViewControllerWithIdentifier("menu") as! MainMenuViewController
+        
+        self.backWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.backWindow!.rootViewController = back
+        backWindow?.makeKeyAndVisible()
+        
+        let front:SwiftAppMenuController = strybd.instantiateViewControllerWithIdentifier("home") as! SwiftAppMenuController
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window!.rootViewController = front
+        self.window!.makeKeyAndVisible()
+        
         return true
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
